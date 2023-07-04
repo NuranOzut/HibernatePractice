@@ -19,6 +19,7 @@ public class Developer06 {
     //@Transient
     private String branch;
     @ManyToOne
+    @JoinColumn
     private Company3 company;
 
     public Developer06() {
