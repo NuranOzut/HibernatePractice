@@ -22,16 +22,13 @@ public class RunnerSave06 {
         Developer06 dev4=new Developer06(4L,"Richie Rich","rich@gmail.com","fullstack");
         Developer06 dev5=new Developer06(5L,"Gandalf","gandalf@gmail.com","backend");
 
-        //iliski sahibi tarafindan set edilmeli
-        //ilişki sahibi tarafından set edilmeli
+        //iliski sahibi tarafindan set edilmeli(fk eklenecek class)
+
         dev1.setCompany(company1);
         dev2.setCompany(company1);
         dev3.setCompany(company2);
         dev4.setCompany(company2);
         dev5.setCompany(company3);
-
-
-
 
 
         Configuration cfg=new Configuration().configure("hibernate.cfg.xml").

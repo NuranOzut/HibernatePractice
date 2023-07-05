@@ -47,8 +47,8 @@ public class RunnerFetch04 {
         System.out.println("------------------3----------------------");
 
         //***ÖDEV***
-        //4)Googleda çalışan developerların isim, branch, company  bilgilerini yazdırınız.
-        String hql2 = "SELECT d.name, d.branch, d.company.id FROM Developer04  d WHERE d.company.companyname='Google'";
+        //4)Googleda çalışan developerların isim, branch, company name bilgilerini yazdırınız.
+        String hql2 = "SELECT d.name, d.branch, d.company.companyname FROM Developer04  d WHERE d.company.companyname='Google'";
         List<Object[]> resultList3 =session.createQuery(hql2).getResultList();
         resultList3.forEach(t-> System.out.println(Arrays.toString(t)));
 

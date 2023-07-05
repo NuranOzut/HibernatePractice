@@ -1,16 +1,20 @@
-package com.tpe.onetomany_bi;
+package com.tpe.manytomany;
+
+import com.tpe.onetomany_bi.Company3;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
-@Table(name = "t_developer6")
-public class Developer06 {
+@Table(name = "t_developer7")
+public class Developer07 {
 
     @Id//her bir entity için zorunlu:PK sağlar
     private Long id;
 
     //optional
-    @Column(name = "dev_name",length = 50,nullable = false)
+    @Column(name = "dev_name", length = 50, nullable = false)
     private String name;
 
     @Column(unique = true)
@@ -18,14 +22,22 @@ public class Developer06 {
 
     //@Transient
     private String branch;
-    @ManyToOne
-    @JoinColumn
-    private Company3 company;
 
-    public Developer06() {
+    @ManyToMany(mappedBy = "developers")
+    private Set<Project> projects = new HashSet<>();
+
+    public Set<Project> getProjects() {
+        return projects;
     }
 
-    public Developer06(Long id, String name, String email, String branch) {
+    public void setProjects(Set<Project> projects) {
+        this.projects = projects;
+    }
+
+    public Developer07() {
+    }
+
+    public Developer07(Long id, String name, String email, String branch) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -74,11 +86,4 @@ public class Developer06 {
                 '}';
     }
 
-    public void setCompany(Company3 company) {
-        this.company = company;
-    }
-
-    public Company3 getCompany() {
-        return company;
-    }
 }
