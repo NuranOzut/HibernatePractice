@@ -33,6 +33,12 @@ public class RunnerSave08 {
         //generation type olarak identitiy kullandigimizda, java uygulamamiz
         // siradaki id yi bilmez.DB en son kaldigi degerden devam eder.
 
+        //identitiy stratejisi -> mySQL ve SQL tarafindan desteklenir
+        //sequence stratejisi -> Oracle ve PostgreSQL tarafindan desteklenir
+        //table stratejisi -> Bir tabloda ID'leri izler ve her bir ID için bir sonraki değeri depolar.
+        //auto stratejisi -> Identity, Sequence, Table stratejilerini kullanabilir
+        //hibernate de UUID kullanilmaz
+
 
 
 
