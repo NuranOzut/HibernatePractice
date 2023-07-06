@@ -1,16 +1,17 @@
-package com.tpe.manytomany;
-
-import com.tpe.onetomany_bi.Company3;
+package com.tpe.idgeneration;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
-@Table(name = "t_developer7")
-public class Developer07 {
+@Table(name = "t_developer8")
+public class Developer08 {
 
-    @Id//her bir entity için zorunlu:PK sağlar
+    @Id
+   // @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //id nin uretiminden otomatik arttirilmasindan db sorumludur
+    @SequenceGenerator(name = "sequence",sequenceName = "dev8_seq",initialValue = 100,allocationSize = 5)
+    //allocation size kadar id kumesi olusturulur, her insert icin java uygulamasi db e siradaki squence in ilk elemanini sorar
+    @GeneratedValue(generator = "sequence", strategy = GenerationType.SEQUENCE)
     private Long id;
 
     //optional
@@ -23,22 +24,11 @@ public class Developer07 {
     //@Transient
     private String branch;
 
-    @ManyToMany(mappedBy = "developers")
-    private Set<Project> projects = new HashSet<>();
 
-    public Set<Project> getProjects() {
-        return projects;
+    public Developer08() {
     }
 
-    public void setProjects(Set<Project> projects) {
-        this.projects = projects;
-    }
-
-    public Developer07() {
-    }
-
-    public Developer07(Long id, String name, String email, String branch) {
-        this.id = id;
+    public Developer08(String name, String email, String branch) {
         this.name = name;
         this.email = email;
         this.branch = branch;
@@ -48,9 +38,6 @@ public class Developer07 {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
@@ -78,12 +65,11 @@ public class Developer07 {
 
     @Override
     public String toString() {
-        return "Developer07{" +
+        return "Developer08{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", branch='" + branch + '\'' +
                 '}';
     }
-
 }

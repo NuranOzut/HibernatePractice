@@ -1,6 +1,5 @@
 package com.tpe.manytomany;
 
-import com.tpe.onetomany_bi.Developer06;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
